@@ -1,0 +1,25 @@
+/*
+    Color pallete
+    #d79922
+    #efe2ba
+    #f13c20
+    #4056a1
+    #c5cbe3
+  */
+button {
+  background-color: #4056a1;
+  color: white;
+  padding: 10px;
+  font-family: Arial;
+  font-size: 14px;
+  border: solid #647bc4;
+  transition-duration: 0.2s;
+  border-radius: 3px;
+}
+button:hover {
+  background-color: #324688;
+}
+button:active {
+  background-color: #203064;
+  color: whitesmoke;
+}
