@@ -23,6 +23,6 @@ Then you can use [Live Server](https://github.com/ritwickdey/vscode-live-server)
 
 The scripts are made with [Deno](https://github.com/denoland/deno).
 
-> Generate component:
-> `deno run --allow-read --allow-write ./scripts/component.ts ComponentName`
-> The first letter should be the prefix of your component (using them is compulsory according to the HTML standars) and I recommend them to be uppercase like the example KBtn, then it's KBtn for the directory and k-btn for the HTML tag.
+- Generate component:
+  `deno run --allow-read --allow-write ./scripts/component.ts ComponentName`
+  The first letter should be the prefix of your component (using them is compulsory according to the HTML standars) and I recommend them to be uppercase like the example KBtn, then it's KBtn for the directory and k-btn for the HTML tag.

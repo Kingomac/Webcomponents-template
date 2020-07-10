@@ -10,9 +10,7 @@ const index = await Deno.create(dir + "index.ts");
 const styles = await Deno.create(dir + "styles.css");
 
 const templateText = new TextEncoder().encode(
-  `<link rel="stylesheet" href="../src/components/${
-    parsedArgs._[0]
-  }/styles.css"}"`,
+  `<link rel="stylesheet" href="../src/components/${parsedArgs._[0]}/styles.css"}">\n`
 );
 await template.write(templateText);
 
@@ -23,7 +21,7 @@ export class ${parsedArgs._[0]} extends HTMLElement {
   shadow: ShadowRoot;
   constructor() {
     super();
-    fetchTemplate("../src/components/KTextInput/template.html").then(
+    fetchTemplate("../src/components/${parsedArgs._[0]}/template.html").then(
       (template) => {
         this.shadow = this.attachShadow({ mode: "open" });
         this.shadow.innerHTML = template;
@@ -33,24 +31,23 @@ export class ${parsedArgs._[0]} extends HTMLElement {
   connectedCallback() {}
 }
 
-`,
+`
 );
 await index.write(indexText);
 
 const indexFile = new TextDecoder().decode(
-  await Deno.readFile(Deno.cwd() + "/src/index.ts"),
+  await Deno.readFile(Deno.cwd() + "/src/index.ts")
 );
 
 const includeTexts = [
   `import { ${parsedArgs._[0]} } from './components/${parsedArgs._[0]}/index'`,
-  `window.customElements.define("${
-    parsedArgs._[0].toString().substring(0, 1).toLowerCase()
-  }-${
-    parsedArgs._[0].toString().substring(
-      1,
-      parsedArgs._[0].toString().length,
-    ).toLowerCase()
-  }", ${parsedArgs._[0]});`,
+  `window.customElements.define("${parsedArgs._[0]
+    .toString()
+    .substring(0, 1)
+    .toLowerCase()}-${parsedArgs._[0]
+    .toString()
+    .substring(1, parsedArgs._[0].toString().length)
+    .toLowerCase()}", ${parsedArgs._[0]});`,
 ];
 
 let result = includeTexts[0] + "\n";

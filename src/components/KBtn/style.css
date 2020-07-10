@@ -7,7 +7,7 @@
     #c5cbe3
   */
 button {
-  background-color: #4056a1;
+  background-color: %%bgcolor%%;
   color: white;
   padding: 10px;
   font-family: Arial;
