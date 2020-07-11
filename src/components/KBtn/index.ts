@@ -20,4 +20,7 @@ export class KBtn extends HTMLElement {
       });
     });
   }
+  connectedCallback() {}
+  disconnectedCallback() {}
+  attributeChangedCallback() {}
 }
